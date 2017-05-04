@@ -25,6 +25,7 @@ class EmpresaController extends Controller
         
     }
 	function index(){
+         
         $empresa=Empresa::paginate(9);
        return view('empresa.index',compact('empresa'));
 	}

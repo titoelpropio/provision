@@ -1,6 +1,16 @@
 @extends('layouts.inicio')
 
 @section('contenido')
+<div class="panel panel-success">
+     <div class="panel-heading">
+          <ul class="nav nav-pills">
+               <li class="active"><a href="#">LOTES</a></li> 
+            <li class=""><a href="{!!URL::to('manzano')!!}">MANZANO</a></li>                        
+        </ul>
+    </div>  
+  <div class="panel-body">
+                     <button class="btn btn-success" data-toggle='modal' data-target='#myModal'>AGREGAR</button>
+
 
 <svg style="height: 100%;
      width: 100%;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -10,12 +20,22 @@
 
 
 
-            <polygon    onclick="divLogin(this)" stroke="#000000"  style="fill:white; cursor: pointer"s
-                        troke-width="0.7087" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+            <polygon  <?php
+            
+            $lote=DB::select(' select count(*) as contar, estado from lote where point="275.8,87.8 274.2,120.2 287.1,120.8 288.7,88.4"' );
+            if(count($lote)!=0){
+                 if($lote[0]->estado==0){
+                        echo 'style="fill:red; cursor: pointer" ';
+                    }
+            }       
+           
+                    ?>   onclick="divLogin(this)" stroke="#000000"  stroke-width="0.7087" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
                       275.8,87.8 274.2,120.2 287.1,120.8 288.7,88.4"/>
 
 
-            <polygon    onclick="divLogin(this)"  fill="none" stroke="#000000"  style="cursor: pointer; fill:white"stroke-width="0.7087" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" ap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
+            <polygon  <?php DB::select(' select *from lote where point=" 288.7,88.4 287.1,120.8 300,121.5 301.7,89.1"' ) 
+                    
+                    ?>   onclick="divLogin(this)"  fill="none" stroke="#000000"  style="cursor: pointer; fill:white"stroke-width="0.7087" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" ap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
                         288.7,88.4 287.1,120.8 300,121.5 301.7,89.1"/>
 
             <polygon    onclick="divLogin(this)"  fill="none" stroke="#000000"  style="cursor: pointer; fill:white"stroke-width="0.7087" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" ap="round" stroke-linejoin="round" stroke-miterlimit="10" points="
@@ -6315,235 +6335,235 @@
         </g>
         <g id="TEXT_5481_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 136.3625 1091.5023)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-1</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 136.3625 1091.5023)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-1</text>
         </g>
         <g id="TEXT_5480_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 810.2983 1164.5923)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-112</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 810.2983 1164.5923)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-112</text>
         </g>
         <g id="TEXT_5479_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 159.3689 707.3277)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-3</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 159.3689 707.3277)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-3</text>
         </g>
         <g id="TEXT_5478_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 148.1648 889.7333)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-2</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 148.1648 889.7333)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-2</text>
         </g>
         <g id="TEXT_5477_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 167.1348 530.0491)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-4</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 167.1348 530.0491)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-4</text>
         </g>
         <g id="TEXT_5475_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 175.5054 346.2062)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-5</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 175.5054 346.2062)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-5</text>
         </g>
         <g id="TEXT_5474_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 187.3655 151.6305)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-6</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 187.3655 151.6305)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-6</text>
         </g>
         <g id="TEXT_5473_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 345.8279 126.3207)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-38</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 345.8279 126.3207)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-38</text>
         </g>
         <g id="TEXT_5468_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 283.2073 1140.3771)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-51</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 283.2073 1140.3771)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-51</text>
         </g>
         <g id="TEXT_5417_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 588.9675 140.6522)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-62</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 588.9675 140.6522)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-62</text>
         </g>
         <g id="TEXT_5416_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 585.0747 218.3544)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-61</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 585.0747 218.3544)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-61</text>
         </g>
         <g id="TEXT_5415_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 821.0783 227.855)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-100</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 821.0783 227.855)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-100</text>
         </g>
         <g id="TEXT_5414_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 824.9714 150.1528)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-99</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 824.9714 150.1528)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-99</text>
         </g>
         <g id="TEXT_5413_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 581.1816 296.0564)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-60</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 581.1816 296.0564)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-60</text>
         </g>
         <g id="TEXT_5412_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 583.4761 373.132)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">EQ-1.</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 583.4761 373.132)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">EQ-1.</text>
         </g>
         <g id="TEXT_5411_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 822.0056 379.7533)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-102</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 822.0056 379.7533)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-102</text>
         </g>
         <g id="TEXT_5410_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 822.4421 461.7827)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-103</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 822.4421 461.7827)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-103</text>
         </g>
         <g id="TEXT_5409_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 576.3357 449.7522)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">A.V.-2</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 576.3357 449.7522)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">A.V.-2</text>
         </g>
         <g id="TEXT_5408_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 567.4319 526.5027)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-59</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 567.4319 526.5027)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-59</text>
         </g>
         <g id="TEXT_5407_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 563.5391 604.2047)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-58</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 563.5391 604.2047)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-58</text>
         </g>
         <g id="TEXT_5406_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 802.3412 616.0605)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-105</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 802.3412 616.0605)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-105</text>
         </g>
         <g id="TEXT_5405_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 559.3218 688.3819)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-57</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 559.3218 688.3819)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-57</text>
         </g>
         <g id="TEXT_5404_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 798.1086 702.5237)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-106</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 798.1086 702.5237)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-106</text>
         </g>
         <g id="TEXT_5403_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 794.2158 780.2257)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-107</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 794.2158 780.2257)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-107</text>
         </g>
         <g id="TEXT_5402_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 549.9819 766.0839)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-56</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 549.9819 766.0839)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-56</text>
         </g>
         <g id="TEXT_5401_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 546.0891 843.7859)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">A.V.-1 </text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 546.0891 843.7859)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">A.V.-1 </text>
         </g>
         <g id="TEXT_5400_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 790.3227 857.9277)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-108</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 790.3227 857.9277)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-108</text>
         </g>
         <g id="TEXT_5399_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 786.4298 935.6298)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-109</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 786.4298 935.6298)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-109</text>
         </g>
         <g id="TEXT_5398_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 542.1963 921.4879)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-55</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 542.1963 921.4879)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-55</text>
         </g>
         <g id="TEXT_5397_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 782.5369 1013.3318)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-110</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 782.5369 1013.3318)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-110</text>
         </g>
         <g id="TEXT_5396_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 538.3032 999.19)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-54</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 538.3032 999.19)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-54</text>
         </g>
         <g id="TEXT_5395_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 534.4104 1076.892)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-53</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 534.4104 1076.892)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-53</text>
         </g>
         <g id="TEXT_5394_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 778.6438 1091.0338)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-111</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 778.6438 1091.0338)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-111</text>
         </g>
         <g id="TEXT_5393_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 530.5173 1154.594)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-52</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 530.5173 1154.594)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-52</text>
         </g>
         <g id="TEXT_5369_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1449.2964 181.3715)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-159</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1449.2964 181.3715)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-159</text>
         </g>
         <g id="TEXT_5353_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 997.8115 188.0774)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-117</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 997.8115 188.0774)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-117</text>
         </g>
         <g id="TEXT_5352_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1253.9382 172.5783)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-141</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1253.9382 172.5783)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-141</text>
         </g>
         <g id="TEXT_5349_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 989.728 393.0325)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-116</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 989.728 393.0325)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-116</text>
         </g>
         <g id="TEXT_5348_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1250.0454 250.2804)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-140</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1250.0454 250.2804)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-140</text>
         </g>
         <g id="TEXT_5347_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 977.2077 585.6262)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-115</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 977.2077 585.6262)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-115</text>
         </g>
         <g id="TEXT_5342_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1131.2996 753.8372)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-136</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1131.2996 753.8372)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-136</text>
         </g>
         <g id="TEXT_5341_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1210.1902 619.9924)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-137</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1210.1902 619.9924)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-137</text>
         </g>
         <g id="TEXT_5340_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1297.7891 474.9878)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-138</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1297.7891 474.9878)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-138</text>
         </g>
         <g id="TEXT_5339_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1400.9004 305.3597)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-160</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1400.9004 305.3597)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-160</text>
         </g>
         <g id="TEXT_5335_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 341.9348 204.0228)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-39</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 341.9348 204.0228)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-39</text>
         </g>
         <g id="TEXT_5334_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 338.042 281.7249)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-40</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 338.042 281.7249)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-40</text>
         </g>
         <g id="TEXT_5333_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 334.1492 359.4269)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-41</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 334.1492 359.4269)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-41</text>
         </g>
         <g id="TEXT_5332_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 330.2561 437.1289)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-42</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 330.2561 437.1289)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-42</text>
         </g>
         <g id="TEXT_5331_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 326.3633 514.8309)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-43</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 326.3633 514.8309)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-43</text>
         </g>
         <g id="TEXT_5330_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 322.4702 592.533)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-44</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 322.4702 592.533)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-44</text>
         </g>
         <g id="TEXT_5329_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 318.2529 676.7101)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-45</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 318.2529 676.7101)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-45</text>
         </g>
         <g id="TEXT_5328_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 314.3601 754.4121)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-46</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 314.3601 754.4121)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-46</text>
         </g>
         <g id="TEXT_5327_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 310.467 832.1141)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-47</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 310.467 832.1141)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-47</text>
         </g>
         <g id="TEXT_5326_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 306.5742 909.8162)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-48</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 306.5742 909.8162)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-48</text>
         </g>
         <g id="TEXT_5325_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 302.6812 987.5182)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-49</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 302.6812 987.5182)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-49</text>
         </g>
         <g id="TEXT_5324_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 298.7883 1065.2202)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-50</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 298.7883 1065.2202)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-50</text>
         </g>
         <g id="TEXT_5323_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 817.1855 305.557)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-101</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 817.1855 305.557)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-101</text>
         </g>
         <g id="TEXT_233_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 805.5068 538.6631)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-104</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 805.5068 538.6631)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-104</text>
         </g>
         <g id="HATCH_10_">
             <path fill-rule="evenodd" clip-rule="evenodd" fill="none" d="M1054.2,751.4l22.7,0.1l0-8.9l-22.7-0.1L1054.2,751.4L1054.2,751.4z
@@ -6551,19 +6571,19 @@
         </g>
         <g id="TEXT_234_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1055.6914 749.4308)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">EQ.-7</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1055.6914 749.4308)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">EQ.-7</text>
         </g>
         <g id="TEXT_238_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1081.9888 192.2947)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-132</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1081.9888 192.2947)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-132</text>
         </g>
         <g id="TEXT_239_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1073.9053 397.2498)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-133</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1073.9053 397.2498)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-133</text>
         </g>
         <g id="TEXT_240_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1061.3848 589.8435)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-134</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1061.3848 589.8435)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-134</text>
         </g>
         <g id="TEXT_241_">
             <text transform="matrix(1 0 0 1 127.1776 993.6875)" font-family="'ArialMT'" font-size="3.0524">1</text>
@@ -36513,7 +36533,7 @@
         </g>
         <g id="TEXT_3569_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1189.3103 411.3158)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">U.A.G.R.M.</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1189.3103 411.3158)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">U.A.G.R.M.</text>
         </g>
         <g id="TEXT_3570_">
             <text transform="matrix(1 0 0 1 939.1563 1112.2653)" font-family="'ArialMT'" font-size="3.0524">1</text>
@@ -38399,19 +38419,19 @@
         </g>
         <g id="TEXT_4424_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 953.789 1022.4367)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-113</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 953.789 1022.4367)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-113</text>
         </g>
         <g id="TEXT_4425_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 968.4357 787.5599)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-114</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 968.4357 787.5599)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-114</text>
         </g>
         <g id="TEXT_4427_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1051.4734 920.4779)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-135</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1051.4734 920.4779)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-135</text>
         </g>
         <g id="TEXT_5172_">
 
-            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1190.7886 427.8801)" fill="#F400FF" font-family="'ArialMT'" font-size="7.631">MZ-139</text>
+            <text transform="matrix(1 2.480000e-003 -2.480000e-003 1 1190.7886 427.8801)" fill="#F400FF" font-family="'ArialMT'" font-size="16.631">MZ-139</text>
         </g>
         <g id="TEXT_5175_">
 
@@ -38779,19 +38799,19 @@
         </g>
         <g id="TEXT_5263_">
 
-            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 563.0716 1202.2153)" fill="#F400FF" font-family="'RomanC'" font-size="7.631">V24</text>
+            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 563.0716 1202.2153)" fill="#F400FF" font-family="'RomanC'" font-size="16.631">V24</text>
         </g>
         <g id="TEXT_5264_">
 
-            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 686.2393 1206.6116)" fill="#F400FF" font-family="'RomanC'" font-size="7.631">V25</text>
+            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 686.2393 1206.6116)" fill="#F400FF" font-family="'RomanC'" font-size="16.631">V25</text>
         </g>
         <g id="TEXT_5265_">
 
-            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 796.9202 1207.5011)" fill="#F400FF" font-family="'RomanC'" font-size="7.631">V26</text>
+            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 796.9202 1207.5011)" fill="#F400FF" font-family="'RomanC'" font-size="16.631">V26</text>
         </g>
         <g id="TEXT_5266_">
 
-            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 907.0601 1210.2134)" fill="#F400FF" font-family="'RomanC'" font-size="7.631">V27</text>
+            <text transform="matrix(0.999 4.568000e-002 -4.568000e-002 0.999 907.0601 1210.2134)" fill="#F400FF" font-family="'RomanC'" font-size="16.631">V27</text>
         </g>
         <g id="DIMENSION_770_">
             <g id="POINT_2306_" display="none">
@@ -39092,6 +39112,8 @@
     </g>
 </svg>
 
+</div>
+  <div class="panel-footer">Pie del panel</div>
 </div>
 {!!Html::script('js/mapa.js')!!}
 

@@ -33,9 +33,9 @@ class MapaController extends Controller {
 
     public function store(Request $request) {
         if ($request->ajax()) {
-           DB::table('mapa')->insert(['nro_lote' => $request['nro_lote'],'nro_lote' => $request['nro_lote'],'nro_lote' => $request['nro_lote']]);
-            Session::flash('message', 'LOTE Creado Correctamente');
-            return Redirect::to('/usuario');
+           DB::table('mapa')->insert(['nro_lote' => $request['nro_lote'],'superficie' => $request['superficie'],'estado' => $request['estado'],'points' => $request['points']]);
+           
+            return response()->json($request);
              
         }         
             

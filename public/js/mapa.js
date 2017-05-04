@@ -1,30 +1,29 @@
 
     var clic = 1;
     lotes = "";
+    punto="";
     function divLogin(lote) {
         point=$(lote);
+        token=$('#token').value;
+         punto=$(lote).attr('points');
+         
         if (lote != lotes && lotes != "") {
             lotes.style.fill = "white";
             lote.style.fill = "#0195bf";
-            alert($(lote).attr('points'));
+           
         }
-       $.ajax({
-            url:"mapa",
-                headers: {'X-CSRF-TOKEN': token},
-                 type: 'POST',
-                  dataType: 'json',
-                   data: {email:email, password:password},
-              });
+     
     
         lotes = lote;
-        if (clic == 1) {
-            document.getElementById("caja").style.display = "block";
-            lote.style.fill = "#0195bf";
-            clic = clic + 1;
-        } else {
-            document.getElementById("caja").style.display = "block";
-            clic = 1;
-        }
+        
     }
-
+function guardar_lote(){
+      $.ajax({
+            url:"mapa",
+          headers: {'X-CSRF-TOKEN': token},
+         type: 'POST',
+        dataType: 'json',
+    data: {nro_lote:nro_lote,dimension:dimension, estado:estado},
+              });
+}
 

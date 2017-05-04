@@ -19,6 +19,8 @@ Route::get('listacategoria1','CategoriaController@listacategoria1');
 
 //mapa
 Route::resource('mapa','MapaController');
+//manzano
+Route::resource('manzano','ManzanoController');
 
 //vendedor
 Route::resource('vendedor','VendedorController');
