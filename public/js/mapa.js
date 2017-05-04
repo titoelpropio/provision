@@ -15,7 +15,7 @@
      
     
         lotes = lote;
-        
+        //aaaaa
     }
 function guardar_lote(){
       $.ajax({
