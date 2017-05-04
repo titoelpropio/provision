@@ -31,12 +31,14 @@ function CargarDatosACtualizar(){
   $("#id_lote").val("");      
   $("#nro_lote_ac").val("");
   $("#superficie_ac").val("");
+  $("#superficie_aux").val("");
   $("#id_manzano_ac").val("");
   punto= punto.trim();
     $.get('cargar_lote/'+punto , function (response) { 
         $("#id_lote").val(response[0].id);      
         $("#nro_lote_ac").val(response[0].nro_lote);
         $("#superficie_ac").val(response[0].superficie);
+        $("#superficie_aux").val(response[0].superficie);
         $("#id_manzano_ac").val(response[0].id_manzano);
         $("#btn_actualizar").show();  
     });

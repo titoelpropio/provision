@@ -67,7 +67,7 @@
     {!!Form::label('superficie_ac','Superficie:')!!}
     {!!Form::text('superficie_ac',null,['class'=>'form-control ','placeholder'=>'Ingresa la superficie'])!!}
 </div>
-
+<input type="text" name="superficie_aux" id="superficie_aux">
 <div class="form-group">
     {!!Form::label('id_manzano_ac','Manzano:')!!}
     {!!Form::select('id_manzano_ac',$manzano,null,array('class'=>'form-control'))!!}
