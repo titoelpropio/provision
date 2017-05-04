@@ -17,6 +17,13 @@
         lotes = lote;
         //aaaaa
     }
+
+function cargardatos(){
+  $("#punto").val(punto.trim());
+}
+
+
+/*
 function guardar_lote(){
       $.ajax({
             url:"mapa",
@@ -25,5 +32,5 @@ function guardar_lote(){
         dataType: 'json',
     data: {nro_lote:nro_lote,dimension:dimension, estado:estado},
               });
-}
+}*/
 

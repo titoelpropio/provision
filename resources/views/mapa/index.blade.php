@@ -1,6 +1,7 @@
 @extends('layouts.inicio')
 
 @section('contenido')
+@include('mapa.modal')
 <div class="panel panel-success">
      <div class="panel-heading">
           <ul class="nav nav-pills">
@@ -9,7 +10,7 @@
         </ul>
     </div>  
   <div class="panel-body">
-                     <button class="btn btn-success" data-toggle='modal' data-target='#myModal'>AGREGAR</button>
+                     <button class="btn btn-success" data-toggle='modal' data-target='#myModal' onclick="cargardatos()">AGREGAR</button>
 
 
 <svg style="height: 100%;

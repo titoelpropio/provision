@@ -1,12 +1,5 @@
 @extends('layouts.inicio')
-    
-    @section('contenido')
-        @if(Session::has('message'))
-<div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    {{Session::get('message')}}
-</div>
-@endif
+@section('contenido')
 @include('alerts.request')
 
                 @include('manzano.modal')
@@ -18,33 +11,29 @@
         </ul>
     </div>  
                     <div class="panel-body">
-                 <button class="btn btn-success" data-toggle='modal' data-target='#myModal'>
-                    <i class="fa fa-plus-square" aria-hidden="true"></i>     
-                </button>
+
                
   <div class="row"> 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="table-responsive">
-        <H1>Manzano</H1>
+        <FONT size="6">MANZANO</FONT>
+        <button class="btn btn-success pull-right" data-toggle='modal' data-target='#myModal'> <i class="fa fa-plus-square" aria-hidden="true"></i> </button>        
         <table class="table table-striped table-bordered table-condensed table-hover">
         <thead>
         <th><CENTER>NOMBRE</CENTER></th>
                 
         <th><CENTER>PROYECTO</CENTER></th>
+        <th><CENTER>OPCION</CENTER></th>
      
         
         
         </thead>
          @foreach ($manzano as $mz)
             <TR>
-            <td><CENTER>{{$mz->id}}</CENTER></td>
             <td><CENTER>{{$mz->nombre}}</CENTER></td>
-            <td><CENTER>{{$mz->proyecto}}</CENTER></td>
-
-        
-            
+            <td><CENTER>{{$mz->nombre_pro}}</CENTER></td>
             <td><CENTER>
-            {!!link_to_route('manzano.edit', $title = 'Editar', $parameters = $cat, $attributes = ['class'=>'btn btn-primary'])!!}
+             <button class="btn btn-primary" data-toggle="modal" data-target="#myModalManzano" onclick="CargarManzano({{$mz->id}});">ACTUALIZAR</button>
             </CENTER></td>
         </TR>
         @endforeach 
@@ -53,5 +42,7 @@
     </div>
 </div>
 </div>
-                        </div>
+</div>
+   {!!Html::script('js/manzano.js')!!}
+
     @endsection

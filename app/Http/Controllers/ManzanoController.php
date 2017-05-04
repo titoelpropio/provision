@@ -10,6 +10,7 @@ use App\Http\Requests\UserUpdateRequest;
 use Session;
 use Redirect;
 use App\Manzano;
+use App\Proyecto;
 use DB;
 use Hash;
 
@@ -22,9 +23,13 @@ class ManzanoController extends Controller {
     }
 
     function index() {
-                $manzano=Manzano::paginate(9);
+        $manzano=DB::table('manzano')
+        ->join('proyecto','proyecto.id','=','manzano.id_proyecto')
+        ->select('manzano.*', 'proyecto.nombre as nombre_pro')
+        ->paginate(20);
 
-        return view('manzano.index',  compact('manzano'));
+        $proyectos=Proyecto::lists('nombre','id');
+        return view('manzano.index',["manzano"=>$manzano],  compact('proyectos'));
     }
 
     public function create() {
@@ -34,14 +39,11 @@ class ManzanoController extends Controller {
     }
 
     public function store(Request $request) {
-        if ($request->ajax()) {
-           DB::table('mapa')->insert(['nombre' => $request['nombre'],'id_proyecto' => $request['id_proyecto']]);
+        DB::table('manzano')->insert(['nombre' => $request['nombre'],'id_proyecto' => $request['id_proyecto']]);
            
-            return response()->json($request);
-             
-        }         
-            
-            
+        Session::flash('message', 'CREADO CORRECTAMENTE');
+        return Redirect::to('/manzano');
+           
     }
 
     public function edit($id) {
@@ -52,25 +54,22 @@ class ManzanoController extends Controller {
         return view('usuario.edit', ['user' => $trabajador], compact('empresa'));
     }
 
-    public function update($id, UserUpdateRequest $request) {
-        $user = User::find($id);
-        $user->fill([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=>Hash::make($request->password),
-            'id_empresa'=>$request->id_empresa
-        ]);
-        $user->save();
-        Session::flash('message', 'Usuario Actualizado Correctamente');
-        return Redirect::to('/usuario');
+    public function update(Request $request) {
+            $id=$request->get("id_manzano");
+            $moto=DB::table('manzano')->where('id', $id)->update(['nombre' => $request['nombre_ac'], 'id_proyecto' => $request['id_proyecto_ac'] ]);
+        Session::flash('message', 'ACTUALIZADO CORRECTAMENTE');
+        return Redirect::to('/manzano');
     }
 
     public function destroy($id) {
-
         $trabajador = User::find($id);
         $trabajador->delete();
         Session::flash('message', 'Usuario Eliminado Correctamente');
         return Redirect::to('/usuario');
     }
 
+    public function cargar_manzano($id){
+        $manzano=DB::select("SELECT *FROM manzano where id=".$id);
+        return response($manzano);
+    }
 }

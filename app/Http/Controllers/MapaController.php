@@ -9,7 +9,7 @@ use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
 use Session;
 use Redirect;
-use App\Empresa;
+use App\Manzano;
 use DB;
 use Hash;
 
@@ -22,8 +22,8 @@ class MapaController extends Controller {
     }
 
     function index() {
-        
-        return view('mapa.index');
+        $manzano = Manzano::lists('nombre', 'id');        
+        return view('mapa.index',['manzano'=>$manzano]);
     }
 
     public function create() {
