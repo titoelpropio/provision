@@ -12,7 +12,7 @@ subtotalhaberd = [];
 input = "";
 idcuenta = [];
 tipocambio = 0;
-
+//fjalñdfjña
 
 function verificarrepetido(cuenta){//este se encarga de ferificar que no pueda agregar 2 cuentas iguales
     if(cont!=0){
