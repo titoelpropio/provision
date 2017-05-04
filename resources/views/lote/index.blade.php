@@ -1,7 +1,13 @@
 @extends('layouts.inicio')
 
 @section('contenido')
-@include('mapa.modal')
+@include('alerts.success')
+@include('alerts.request')
+@include('alerts.errors')
+
+@include('lote.modal')
+{!!Html::script('js/lote.js')!!}
+
 <div class="panel panel-success">
      <div class="panel-heading">
           <ul class="nav nav-pills">
@@ -11,6 +17,7 @@
     </div>  
   <div class="panel-body">
                      <button class="btn btn-success" data-toggle='modal' data-target='#myModal' onclick="cargardatos()">AGREGAR</button>
+                     <button class="btn btn-primary" data-toggle='modal' data-target='#myModalActualizar' onclick="CargarDatosACtualizar()">ACTUALIZAR</button>
 
 
 <svg style="height: 100%;
@@ -39116,7 +39123,6 @@
 </div>
   <div class="panel-footer">Pie del panel</div>
 </div>
-{!!Html::script('js/mapa.js')!!}
 
 <!--
 <div id="caja" style="    min-width: 189px;

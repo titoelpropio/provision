@@ -2,7 +2,9 @@
     var clic = 1;
     lotes = "";
     punto="";
+
     function divLogin(lote) {
+      if (lote.style.fill!='red') {
         point=$(lote);
         token=$('#token').value;
          punto=$(lote).attr('points');
@@ -15,12 +17,32 @@
      
     
         lotes = lote;
-        //aaaaa
+    
+      }
+
     }
 
 function cargardatos(){
   $("#punto").val(punto.trim());
 }
+
+function CargarDatosACtualizar(){
+  $("#btn_actualizar").hide();  
+  $("#id_lote").val("");      
+  $("#nro_lote_ac").val("");
+  $("#superficie_ac").val("");
+  $("#id_manzano_ac").val("");
+  punto= punto.trim();
+    $.get('cargar_lote/'+punto , function (response) { 
+        $("#id_lote").val(response[0].id);      
+        $("#nro_lote_ac").val(response[0].nro_lote);
+        $("#superficie_ac").val(response[0].superficie);
+        $("#id_manzano_ac").val(response[0].id_manzano);
+        $("#btn_actualizar").show();  
+    });
+  
+}
+
 
 
 /*

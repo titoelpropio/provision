@@ -17,8 +17,9 @@ Route::resource('categoria','CategoriaController');
 Route::get('listacategoria1','CategoriaController@listacategoria1');
 
 
-//mapa
-Route::resource('mapa','MapaController');
+//lote
+Route::resource('lote','LoteController');
+Route::get('cargar_lote/{punto}','loteController@cargar_lote');
 
 //manzano
 Route::resource('manzano','ManzanoController');
