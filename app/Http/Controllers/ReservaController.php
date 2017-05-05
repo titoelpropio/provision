@@ -10,11 +10,11 @@ use App\Http\Requests\UserUpdateRequest;
 use Session;
 use Redirect;
 use App\Manzano;
-use App\Lote;
+use App\Reserva;
 use DB;
 use Hash;
 
-class LoteController extends Controller {
+class ReservaController extends Controller {
 
     public function __construct() {
 //        $this->middleware('auth');
@@ -24,7 +24,7 @@ class LoteController extends Controller {
 
     function index() {
         $manzano = Manzano::lists('nombre', 'id');        
-        return view('lote.index',['manzano'=>$manzano]);
+        return view('Reserva.index',['manzano'=>$manzano]);
     }
 
     public function create() {
@@ -33,14 +33,14 @@ class LoteController extends Controller {
     }
 
     public function store(Request $request) {
-        $verificar=DB::select("SELECT COUNT(*)as contador from lote WHERE id_manzano=".$request['id_manzano']." AND nro_lote=".$request['nro_lote']);
+        $verificar=DB::select("SELECT COUNT(*)as contador from Reserva WHERE id_manzano=".$request['id_manzano']." AND nro_Reserva=".$request['nro_Reserva']);
         if ($verificar[0]->contador == 1) {
-            Session::flash('message-error', 'YA EXISTE UN LOTE CON ESAS CARACTERISTICAS');
-            return Redirect::to('/lote');             
+            Session::flash('message-error', 'YA EXISTE UN Reserva CON ESAS CARACTERISTICAS');
+            return Redirect::to('/Reserva');             
         } else {
-           DB::table('lote')->insert(['nro_lote' => $request['nro_lote'],'superficie' => $request['superficie'],'estado' => $request['estado'],'point' => $request['punto'],'id_manzano' => $request['id_manzano']]);        
+           DB::table('Reserva')->insert(['nro_Reserva' => $request['nro_Reserva'],'superficie' => $request['superficie'],'estado' => $request['estado'],'point' => $request['punto'],'id_manzano' => $request['id_manzano']]);        
            Session::flash('message', 'CREADO CORRECTAMENTE');
-        return Redirect::to('/lote');   
+        return Redirect::to('/Reserva');   
         }
     }
 
@@ -51,15 +51,15 @@ class LoteController extends Controller {
     }
 
     public function update(Request $request) {
-        $verificar=DB::select("SELECT COUNT(*)as contador from lote WHERE id_manzano=".$request['id_manzano_ac']." AND nro_lote=".$request['nro_lote_ac']);
+        $verificar=DB::select("SELECT COUNT(*)as contador from Reserva WHERE id_manzano=".$request['id_manzano_ac']." AND nro_Reserva=".$request['nro_Reserva_ac']);
         if ($verificar[0]->contador == 1) {
-            Session::flash('message-error', 'YA EXISTE UN LOTE CON ESAS CARACTERISTICAS');
-            return Redirect::to('/lote');            
+            Session::flash('message-error', 'YA EXISTE UN Reserva CON ESAS CARACTERISTICAS');
+            return Redirect::to('/Reserva');            
         } else {
-            $id=$request->get("id_lote");
-            DB::table('lote')->where('id', $id)->update(['nro_lote'=>$request['nro_lote_ac'], 'superficie'=>$request['superficie_ac'],'id_manzano'=>$request['id_manzano_ac']]);       
+            $id=$request->get("id_Reserva");
+            DB::table('Reserva')->where('id', $id)->update(['nro_Reserva'=>$request['nro_Reserva_ac'], 'superficie'=>$request['superficie_ac'],'id_manzano'=>$request['id_manzano_ac']]);       
             Session::flash('message', 'ACTUALIZADO CORRECTAMENTE');
-            return Redirect::to('/lote');   
+            return Redirect::to('/Reserva');   
         }                       
 
     }
@@ -72,9 +72,9 @@ class LoteController extends Controller {
         return Redirect::to('/usuario');
     }
 
-    public function cargar_lote($punto){
-        $lote=DB::select('SELECT * FROM lote WHERE lote.point="'.$punto.'"');
-        return response($lote);
+    public function cargar_Reserva($punto){
+        $Reserva=DB::select('SELECT * FROM Reserva WHERE Reserva.point="'.$punto.'"');
+        return response($Reserva);
     }
 
 }

@@ -18,6 +18,10 @@ Route::get('listacategoria1','CategoriaController@listacategoria1');
 
 
 //lote
+Route::resource('reserva','ReservaController');
+
+
+//lote
 Route::resource('lote','LoteController');
 Route::get('cargar_lote/{punto}','loteController@cargar_lote');
 
